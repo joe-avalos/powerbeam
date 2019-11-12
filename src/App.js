@@ -3,8 +3,11 @@ import {Provider} from 'react-redux'
 import {ConnectedRouter} from 'connected-react-router'
 
 import configureStore, {history} from './modules/store/configureStore'
-import './stylesheets/App.css';
+
 import Content from './components/content'
+import NavBar from './components/navBar'
+
+import './stylesheets/App.css';
 
 const store = configureStore()
 
@@ -13,6 +16,7 @@ function App() {
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <Content />
+            <NavBar />
         </ConnectedRouter>
     </Provider>
   );
