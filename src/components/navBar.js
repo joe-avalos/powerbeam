@@ -13,7 +13,8 @@ import {withStyles} from '@material-ui/core'
 const BottomNavBar = withStyles({
     root: {
         top: 'auto',
-        bottom: 0
+        bottom: 0,
+        backgroundColor: 'transparent'
     }
 })(AppBar)
 
@@ -26,7 +27,7 @@ export default function () {
         dispatch(push(v))
     }
     return (
-          <BottomNavBar position={'fixed'} color={'secondary'}>
+          <BottomNavBar position={'fixed'}>
               <Container maxWidth={'lg'}>
                 <BottomNavigation
                   value={value}

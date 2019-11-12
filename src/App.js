@@ -7,19 +7,25 @@ import configureStore, {history} from './modules/store/configureStore'
 import Content from './components/content'
 import NavBar from './components/navBar'
 
-import './stylesheets/App.css';
+import {ThemeProvider} from '@material-ui/core/styles'
+import {createMuiTheme, responsiveFontSizes} from '@material-ui/core/styles';
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
 const store = configureStore()
 
 function App() {
-  return (
-    <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <Content />
-            <NavBar />
-        </ConnectedRouter>
-    </Provider>
-  );
+    return (
+      <Provider store={store}>
+          <ThemeProvider theme={theme}>
+              <ConnectedRouter history={history}>
+                  <Content/>
+                  <NavBar/>
+              </ConnectedRouter>
+          </ThemeProvider>
+      </Provider>
+    );
 }
 
 export default App;
