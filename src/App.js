@@ -3,16 +3,16 @@ import {Provider} from 'react-redux'
 import {ConnectedRouter} from 'connected-react-router'
 
 import configureStore, {history} from './modules/store/configureStore'
-
+//Import app components
 import Content from './components/content'
 import NavBar from './components/navBar'
 
-import {ThemeProvider} from '@material-ui/core/styles'
 import {createMuiTheme, responsiveFontSizes} from '@material-ui/core/styles';
-
+import {ThemeProvider} from '@material-ui/core/styles'
+//Make typography responsive
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
-
+//Create store for redux
 const store = configureStore()
 
 function App() {

@@ -1,14 +1,15 @@
 import React from 'react'
-import {push} from 'connected-react-router'
-import {useDispatch, useSelector} from 'react-redux'
-
+//Import Material UI components individually to limit load
 import AppBar from '@material-ui/core/AppBar'
-import Container from '@material-ui/core/Container'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
-import HomeIcon from '@material-ui/icons/Home'
 import CardIcon from '@material-ui/icons/Games'
+import Container from '@material-ui/core/Container'
+import HomeIcon from '@material-ui/icons/Home'
 import {withStyles} from '@material-ui/core'
+//Import necessary functions for navigation and redux store
+import {push} from 'connected-react-router'
+import {useDispatch, useSelector} from 'react-redux'
 
 const BottomNavBar = withStyles({
     root: {
@@ -19,9 +20,11 @@ const BottomNavBar = withStyles({
 })(AppBar)
 
 export default function () {
+    const dispatch = useDispatch()
+    //Get pathname for correct menu selection
     const pathName = useSelector(state => state.router.location.pathname)
     const [value, setValue] = React.useState(pathName)
-    const dispatch = useDispatch()
+    
     function handleChange(e, v) {
         setValue(v)
         dispatch(push(v))

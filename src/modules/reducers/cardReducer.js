@@ -21,6 +21,7 @@ export function cardReducer(state = defaultState, action) {
                 hasErrored: action.hasErrored
             }
         case CARD_ACTIONS.CARD_DEALER_SUCCESS:
+            //Get card "value" from random int % 52
             let dealerCards = _.cloneDeep(state.dealerCards)
             let dealCard = action.card % 52
             dealerCards.push(dealCard)
@@ -29,6 +30,7 @@ export function cardReducer(state = defaultState, action) {
                 dealerCards: dealerCards
             }
         case CARD_ACTIONS.CARD_PLAYER_SUCCESS:
+            //Get card "value" from random int % 52
             let playerCards = _.cloneDeep(state.playerCards)
             let playCard = action.card % 52
             playerCards.push(playCard)

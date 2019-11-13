@@ -1,5 +1,6 @@
+//Define random int generator api address
 const url = 'https://www.random.org/integers/?num=1&min=0&max=16777216&col=1&base=10&format=plain&rnd=new'
-
+//Set constants for consistency across app
 export const CARD_ACTIONS = {
     CARD_IS_LOADING: 'CARD_IS_LOADING',
     CARD_HAS_ERRORED: 'CARD_HAS_ERRORED',
@@ -40,23 +41,30 @@ export function cardReset() {
 
 export function cardFetchData(user) {
     return (dispatch) => {
+        //Set loading to true
         dispatch(cardIsLoading(true))
         fetch(url)
           .then((response) => {
               if (!response.ok) {
+                  //Throw error if response not ok
                   throw Error(response.statusText)
               }
               dispatch(cardIsLoading(false))
               return response;
-          })
+          })//Decode response and await promise
           .then((response) => response.json())
           .then((card) => {
+              //Check where to allocate received card dealer||player
               if (user === 'player') {
                   dispatch(cardPlayerSuccess(card))
               }else{
                   dispatch(cardDealerSuccess(card))
               }
           })
-          .catch(() => dispatch(cardHasErrored(true)));
+          .catch(() => {
+              //Handle errors
+              dispatch(cardIsLoading(false))
+              dispatch(cardHasErrored(true))
+          });
     };
 }
