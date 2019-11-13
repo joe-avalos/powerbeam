@@ -8,6 +8,7 @@
     "@material-ui/styles": "^4.6.0",
     "connected-react-router": "^6.5.2",
     "history": "^4.10.1",
+    "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -15,7 +16,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "uuid-int": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
