@@ -5,11 +5,12 @@ import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import {withStyles} from '@material-ui/core'
+
 //Import necessary redux functions
 import {useDispatch, useSelector} from 'react-redux'
 
 import ButtonMenu from '../components/buttons'
-import {cardFetchData, cardReset} from '../modules/actions/cardActions'
+import {fetchData, reset} from '../modules/actions/actions'
 import {printCard, WonDialog} from '../components/functions'
 import {values} from '../components/constants'
 
@@ -32,9 +33,7 @@ const PlayBox = withStyles({
 export default function () {
     const dispatch = useDispatch()
     //Get redux state
-    const dealerCards = useSelector(state => state.card.dealerCards)
-    const playerCards = useSelector(state => state.card.playerCards)
-    const isLoading = useSelector(state => state.card.isLoading)
+    const isLoading = useSelector(state => state.item.isLoading)
     //Define local state variables
     const [stand, setStand] = React.useState(true)
     const [dealerSum, setDealerSum] = React.useState(0)
@@ -53,7 +52,7 @@ export default function () {
     useEffect(() => {
         if (!stand) {
             if (dealerSum < 21) {
-                dispatch(cardFetchData('dealer'))
+                dispatch(fetchData('dealer'))
             }
             handleResult()
         }

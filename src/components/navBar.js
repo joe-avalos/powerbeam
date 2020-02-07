@@ -3,7 +3,6 @@ import React from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
-import CardIcon from '@material-ui/icons/Games'
 import Container from '@material-ui/core/Container'
 import HomeIcon from '@material-ui/icons/Home'
 import {withStyles} from '@material-ui/core'
@@ -38,7 +37,7 @@ export default function () {
                   showLabels
                 >
                     <BottomNavigationAction label={'Home'} icon={<HomeIcon />} value={'/'} />
-                    <BottomNavigationAction label={'Blackjack'} icon={<CardIcon />} value={'/blackjack'} />
+                    {/*<BottomNavigationAction label={'Blackjack'} icon={<CardIcon />} value={'/blackjack'} />*/}
                 </BottomNavigation>
               </Container>
           </BottomNavBar>

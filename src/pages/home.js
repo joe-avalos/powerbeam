@@ -21,9 +21,8 @@ export default function () {
     return (
       <Container maxWidth={'lg'} className="centralContainer">
           <CenterPaper>
-              <img src="bitsoLogo.png" alt="Bitso Gaming" className="logo" />
               <Typography variant={'h3'}>
-                  Bitso Gaming
+                  WELCOME!
               </Typography>
           </CenterPaper>
       </Container>
