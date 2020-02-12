@@ -1,10 +1,12 @@
 //Define random int generator api address
-const url = 'https://www.random.org/integers/?num=1&min=0&max=16777216&col=1&base=10&format=plain&rnd=new'
+const urlPosts = 'https://jsonplaceholder.typicode.com/posts'
+const urlUsers = 'https://jsonplaceholder.typicode.com/users'
 //Set constants for consistency across app
 export const ACTIONS = {
     IS_LOADING: 'IS_LOADING',
     HAS_ERRORED: 'HAS_ERRORED',
-    SUCCESS: 'SUCCESS',
+    USERS_SUCCESS: 'USERS_SUCCESS',
+    POSTS_SUCCESS: 'POSTS_SUCCESS',
     RESET: 'RESET'
 }
 
@@ -21,10 +23,17 @@ export function isLoading(bool) {
     };
 }
 
-export function success(item) {
+export function successUsers(users) {
     return {
-        type: 'SUCCESS',
-        item: item
+        type: 'USERS_SUCCESS',
+        users: users
+    };
+}
+
+export function successPosts(posts) {
+    return {
+        type: 'POSTS_SUCCESS',
+        posts: posts
     };
 }
 
@@ -34,11 +43,11 @@ export function reset() {
   }
 }
 
-export function fetchData(user) {
+export function fetchUsers() {
     return (dispatch) => {
         //Set loading to true
         dispatch(isLoading(true))
-        fetch(url)
+        fetch(urlUsers)
           .then((response) => {
               if (!response.ok) {
                   //Throw error if response not ok
@@ -48,9 +57,35 @@ export function fetchData(user) {
               return response;
           })//Decode response and await promise
           .then(response => response.json())
-          .then(item => {
+          .then(users => {
               //Allocate received successful response
-              dispatch(success(item))
+              dispatch(successUsers(users))
+          })
+          .catch(() => {
+              //Handle errors
+              dispatch(isLoading(false))
+              dispatch(hasErrored(true))
+          });
+    };
+}
+
+export function fetchPosts() {
+    return (dispatch) => {
+        //Set loading to true
+        dispatch(isLoading(true))
+        fetch(urlPosts)
+          .then((response) => {
+              if (!response.ok) {
+                  //Throw error if response not ok
+                  throw Error(response.statusText)
+              }
+              dispatch(isLoading(false))
+              return response;
+          })//Decode response and await promise
+          .then(response => response.json())
+          .then(posts => {
+              //Allocate received successful response
+              dispatch(successPosts(posts))
           })
           .catch(() => {
               //Handle errors

@@ -4,7 +4,8 @@ import _ from 'lodash'
 const defaultState = {
     isLoading: false,
     hasErrored: false,
-    item: {}
+    users: {},
+    posts: {}
 }
 
 export function reducer(state = defaultState, action) {
@@ -19,14 +20,15 @@ export function reducer(state = defaultState, action) {
                 ...state,
                 hasErrored: action.hasErrored
             }
-        case ACTIONS.SUCCESS:
-            //Get card "value" from random int % 52
-            let stateItem = _.cloneDeep(state.item)
-            let item = action.item
-            stateItem.push(item)
+        case ACTIONS.USERS_SUCCESS:
             return {
                 ...state,
-                item: item
+                users: action.users
+            }
+        case ACTIONS.POSTS_SUCCESS:
+            return {
+                ...state,
+                posts: action.posts
             }
         case ACTIONS.RESET:
             return defaultState;

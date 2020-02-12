@@ -8,11 +8,11 @@ body {
 }
 
 #root{
-  height: 100vh;
+  margin-top: 15px;
 }
 
 .centralContainer{
-  height: calc(100% - 56px);
+  height: calc(100%);
   display: flex;
   flex-flow: column;
   justify-content: center;

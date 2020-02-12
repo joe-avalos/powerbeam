@@ -5,6 +5,7 @@ import BottomNavigation from '@material-ui/core/BottomNavigation'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 import Container from '@material-ui/core/Container'
 import HomeIcon from '@material-ui/icons/Home'
+import AllInboxIcon from '@material-ui/icons/AllInbox'
 import {withStyles} from '@material-ui/core'
 //Import necessary functions for navigation and redux store
 import {push} from 'connected-react-router'
@@ -37,7 +38,7 @@ export default function () {
                   showLabels
                 >
                     <BottomNavigationAction label={'Home'} icon={<HomeIcon />} value={'/'} />
-                    {/*<BottomNavigationAction label={'Blackjack'} icon={<CardIcon />} value={'/blackjack'} />*/}
+                    <BottomNavigationAction label={'Posts'} icon={<AllInboxIcon />} value={'/posts'} />
                 </BottomNavigation>
               </Container>
           </BottomNavBar>
