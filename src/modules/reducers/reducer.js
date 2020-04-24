@@ -1,11 +1,9 @@
 import {ACTIONS} from '../actions/actions'
-import _ from 'lodash'
 
 const defaultState = {
     isLoading: false,
     hasErrored: false,
-    users: {},
-    posts: {}
+    cars: []
 }
 
 export function reducer(state = defaultState, action) {
@@ -20,15 +18,10 @@ export function reducer(state = defaultState, action) {
                 ...state,
                 hasErrored: action.hasErrored
             }
-        case ACTIONS.USERS_SUCCESS:
+        case ACTIONS.CARS_SUCCESS:
             return {
                 ...state,
-                users: action.users
-            }
-        case ACTIONS.POSTS_SUCCESS:
-            return {
-                ...state,
-                posts: action.posts
+                cars: action.cars
             }
         case ACTIONS.RESET:
             return defaultState;

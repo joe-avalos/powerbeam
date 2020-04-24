@@ -7,7 +7,7 @@ import {withStyles} from '@material-ui/core'
 const CenterPaper = withStyles({
     root:{
         width: '70%',
-        height: '60%',
+        height: '80vh',
         margin: '0 auto',
         display: 'flex',
         flexFlow: 'column',
@@ -21,8 +21,8 @@ export default function () {
     return (
       <Container maxWidth={'lg'} className="centralContainer">
           <CenterPaper>
-              <Typography variant={'h3'}>
-                  WELCOME!
+              <Typography variant={'h3'} className="text-center">
+                  WELCOME <br/> POWERBEAM
               </Typography>
           </CenterPaper>
       </Container>
