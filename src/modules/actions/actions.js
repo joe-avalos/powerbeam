@@ -1,5 +1,3 @@
-import {carsJson} from '../../carsJson'
-
 const urlCars = 'https://tortops.com/vehiculosRegistro'
 //Set constants for consistency across app
 export const ACTIONS = {
