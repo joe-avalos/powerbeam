@@ -28,7 +28,7 @@ export default function () {
   }
   if (hasErrored) {
     content = <div className="alert alert-danger">
-      An error has occurred. Please <span onClick={loadOffline}>click here</span> to load stored results.
+      An error has occurred. Please <span onClick={loadOffline} style={{cursor: 'pointer'}}>click here</span> to load stored results.
     </div>
   } else if (isLoading) {
     content = <h1 className="text-center">Loading...</h1>
