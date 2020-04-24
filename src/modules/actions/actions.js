@@ -1,6 +1,6 @@
 import {carsJson} from '../../carsJson'
 
-const urlCars = 'http://tortops.com/vehiculosRegistro'
+const urlCars = 'https://tortops.com/vehiculosRegistro'
 //Set constants for consistency across app
 export const ACTIONS = {
   IS_LOADING: 'IS_LOADING',
